@@ -13,4 +13,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findByDepartmentId(Long id);
     @Override
     Page<Employee> findAll(Pageable pageable);
+    List<Employee> findByNameIsContainingIgnoreCase(String query);
 }

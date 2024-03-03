@@ -45,4 +45,9 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeRepo.findAll(pageable);
     }
 
+    @Override
+    public List<Employee> findByName(String query) {
+        return employeeRepo.findByNameIsContainingIgnoreCase(query);
+    }
+
 }

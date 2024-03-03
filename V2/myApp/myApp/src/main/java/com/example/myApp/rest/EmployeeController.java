@@ -34,6 +34,10 @@ public class EmployeeController {
     public Page<Employee> getAllEmployeesPageable(Pageable pageable){
         return employeeService.getAllEmployeesPageable(pageable);
     }
+    @GetMapping("employees/search")
+    public List<Employee> findByName(@RequestParam String query){
+        return employeeService.findByName(query);
+    }
     @DeleteMapping("employees/{id}")
     public void deleteById(@PathVariable Long id){
         employeeService.deleteById(id);

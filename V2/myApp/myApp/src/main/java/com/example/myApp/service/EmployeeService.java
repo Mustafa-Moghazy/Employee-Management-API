@@ -16,4 +16,5 @@ public interface EmployeeService {
     void deleteById(Long id);
     List<Employee> findByDepartmentId(Long id);
     Page<Employee> getAllEmployeesPageable(Pageable pageable);
+    List<Employee> findByName(String query);
 }

@@ -1,18 +1,17 @@
 package com.example.myApp.rest;
-
-import com.example.myApp.dao.EmployeeDAOImpl;
 import com.example.myApp.entity.Employee;
-import com.example.myApp.service.EmployeeServiceImpl;
+import com.example.myApp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api")
 public class EmployeeController {
     @Autowired
-    EmployeeServiceImpl employeeService;
+    EmployeeService employeeService;
     @GetMapping("/")
     public String welcome(){
         return "Welcome To My API ^-^";
@@ -22,7 +21,7 @@ public class EmployeeController {
         return employeeService.findAll();
     }
     @GetMapping("/employees/{id}")
-    public Employee findById(@PathVariable Long id){
+    public Optional<Employee> findById(@PathVariable Long id){
         return employeeService.findById(id);
     }
     @DeleteMapping("employees/{id}")

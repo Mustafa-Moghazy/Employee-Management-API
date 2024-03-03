@@ -4,6 +4,8 @@ import com.example.myApp.entity.Employee;
 import com.example.myApp.repository.EmployeeRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,4 +39,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     public List<Employee> findByDepartmentId(Long id) {
         return employeeRepo.findByDepartmentId(id);
     }
+
+    @Override
+    public Page<Employee> getAllEmployeesPageable(Pageable pageable) {
+        return employeeRepo.findAll(pageable);
+    }
+
 }

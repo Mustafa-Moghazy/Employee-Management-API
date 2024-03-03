@@ -2,6 +2,8 @@ package com.example.myApp.rest;
 import com.example.myApp.entity.Employee;
 import com.example.myApp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +29,10 @@ public class EmployeeController {
     @GetMapping("/department/{id}/employees")
     public List<Employee> findByDepartmentId(@PathVariable Long id){
         return employeeService.findByDepartmentId(id);
+    }
+    @GetMapping("employees/pageable")
+    public Page<Employee> getAllEmployeesPageable(Pageable pageable){
+        return employeeService.getAllEmployeesPageable(pageable);
     }
     @DeleteMapping("employees/{id}")
     public void deleteById(@PathVariable Long id){

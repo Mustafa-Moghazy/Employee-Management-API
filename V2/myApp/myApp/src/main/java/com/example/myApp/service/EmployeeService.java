@@ -1,6 +1,8 @@
 package com.example.myApp.service;
 
 import com.example.myApp.entity.Employee;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,4 +15,5 @@ public interface EmployeeService {
     Employee save(Employee employee);
     void deleteById(Long id);
     List<Employee> findByDepartmentId(Long id);
+    Page<Employee> getAllEmployeesPageable(Pageable pageable);
 }

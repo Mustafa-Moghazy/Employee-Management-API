@@ -32,4 +32,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     public void deleteById(Long id) {
          employeeRepo.deleteById(id);
     }
+
+    @Override
+    public List<Employee> findByDepartmentId(Long id) {
+        return employeeRepo.findByDepartmentId(id);
+    }
 }

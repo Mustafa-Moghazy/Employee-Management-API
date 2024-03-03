@@ -24,6 +24,10 @@ public class EmployeeController {
     public Optional<Employee> findById(@PathVariable Long id){
         return employeeService.findById(id);
     }
+    @GetMapping("/department/{id}/employees")
+    public List<Employee> findByDepartmentId(@PathVariable Long id){
+        return employeeService.findByDepartmentId(id);
+    }
     @DeleteMapping("employees/{id}")
     public void deleteById(@PathVariable Long id){
         employeeService.deleteById(id);

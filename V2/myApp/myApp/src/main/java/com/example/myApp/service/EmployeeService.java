@@ -12,4 +12,5 @@ public interface EmployeeService {
     Optional<Employee> findById(Long id);
     Employee save(Employee employee);
     void deleteById(Long id);
+    List<Employee> findByDepartmentId(Long id);
 }
